@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  /* background: linear-gradient(135deg, hsla(290, 100%, 80%, 1) 33%, hsla(0, 0%, 100%, 1) 88%); */
+  background: radial-gradient(circle, hsla(290, 100%, 80%, 1) 34%, hsla(0, 0%, 100%, 1) 100%);
+}
+@font-face {
+  font-family: 'Genjiro';
+  src: url(../public/Genjiro-JRymx.otf);
+}
+@font-face {
+  font-family: 'Ukiyo';
+  src: url(../public/UkiyoMindDemoRegular-WylvY.otf);
+}
+@font-face {
+  font-family: 'Hitto';
+  src: url(../public/HittoSushi-p7XMO.otf);
+}
