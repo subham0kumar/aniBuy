@@ -8,13 +8,13 @@
 }
 @font-face {
   font-family: 'Genjiro';
-  src: url(../public/Genjiro-JRymx.otf);
+  src: url(/Genjiro-JRymx.otf);
 }
 @font-face {
   font-family: 'Ukiyo';
-  src: url(../public/UkiyoMindDemoRegular-WylvY.otf);
+  src: url(/UkiyoMindDemoRegular-WylvY.otf);
 }
 @font-face {
   font-family: 'Hitto';
-  src: url(../public/HittoSushi-p7XMO.otf);
+  src: url(/HittoSushi-p7XMO.otf);
 }
