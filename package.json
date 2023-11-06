@@ -13,10 +13,12 @@
     "@heroicons/react": "^1.0.6",
     "react": "^18.2.0",
     "react-alice-carousel": "^2.8.0",
+    "react-collapse": "^5.1.1",
     "react-dom": "^18.2.0",
     "react-easy-swipe": "^0.0.23",
     "react-fast-marquee": "^1.6.2",
     "react-icons": "^4.11.0",
+    "react-pro-sidebar": "^1.1.0-alpha.1",
     "react-router-dom": "^6.17.0",
     "swiper": "^11.0.3"
   },

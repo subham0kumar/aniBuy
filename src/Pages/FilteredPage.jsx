@@ -1,9 +1,12 @@
 import React from 'react'
+import ProSidebar from '../Components1/Utility/ProSidebar'
 
 
 const FilteredPage = () => {
   return (
-    <div>FilteredPage</div>
+    <div>FilteredPage
+      <ProSidebar />
+    </div>
   )
 }
 

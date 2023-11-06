@@ -47,12 +47,11 @@ const TopCategorySection = () => {
         <span className="text-4xl font-agbalumo text-gray-800">
           Top Categories
         </span>
-        <div className="grid grid-cols-3 place-content-center max-w-[900px] gap-x-4 gap-2 mt-2">
-          {data.map((category) => (
-            <Link to={`/filtered/categoryID:${category.id}`}>
+        <div className="grid grid-cols-1 place-content-center gap-x-4 gap-2 mt-2 sm:grid-cols-3">
+          {data.map((category, index) => (
+            <Link to={`/filtered/categoryID:${category.id}`} key={index}>
               <div className="group">
                 <div
-                  key={category.id}
                   className="flex items-center justify-center bg-sky-200/[.8] w-[300px] h-[200px] border-2 text-5xl hover:cursor-pointer bg-center bg-cover bg-no-repeat hover:bg-blend-screen active:scale-95 duration-150"
                   style={{
                     backgroundImage: `url(${category.imgUrl})`,

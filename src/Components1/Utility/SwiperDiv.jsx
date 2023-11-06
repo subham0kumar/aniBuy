@@ -1,20 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "swiper/css/bundle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "./Card";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const SwiperDiv = ({ data, heading }) => {
-  const navigate = useNavigate();
+  const [matches, setMatches] = useState(
+    window.matchMedia("(min-width: 640px)").matches
+  );
+  useEffect(() => {
+    window
+      .matchMedia("(min-width: 640px)")
+      .addEventListener("change", (e) => setMatches(e.matches));
+  }, []);
+  const slideCount = matches ? 5 : 2;
   return (
     <div>
       <span className="text-4xl font-agbalumo text-gray-800">{heading}</span>
       <Swiper
         spaceBetween={10}
-        slidesPerView={5}
-        // onSlideChange={() => console.log("slide change")}
-        // onSwiper={(swiper) => console.log(swiper)}
-        // {() => navigate(`/product/index:${index}`)}
+        slidesPerView={slideCount}
       >
         <div className="space-x-4 p-4 m-2 rounded-lg">
           {data.map((card, index) => (

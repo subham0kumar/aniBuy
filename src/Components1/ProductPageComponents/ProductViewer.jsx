@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const ProductViewer = () => {
   return (
-    <div>ProductViewer</div>
-  )
-}
+    <div>
+        <h1>Jai hole nath</h1>
+    </div>
+  );
+};
 
-export default ProductViewer
+export default ProductViewer;

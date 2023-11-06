@@ -18,3 +18,7 @@
   font-family: 'Hitto';
   src: url(/HittoSushi-p7XMO.otf);
 }
+
+.ReactCollapse--collapse {
+  transition: height 300ms;
+}

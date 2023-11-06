@@ -53,7 +53,7 @@ const LatestDrops = () => {
     <div className="flex-row overflow- items-center justify-center my-2 p-2">
       <div className=" p-4 m-2 rounded-lg text-center">
         <SwiperDiv data={data} heading={title} />
-        <Link to={`/filtered/${title}`}>
+        <Link to={`/filtered/`}>
           <Button text={"View More"} />
         </Link>
       </div>
