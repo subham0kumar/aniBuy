@@ -1,11 +1,11 @@
 import React from 'react'
-import ProSidebar from '../Components1/Utility/ProSidebar'
+import { useParams } from 'react-router-dom'
 
 
 const FilteredPage = () => {
+  const {page} = useParams();
   return (
-    <div>FilteredPage
-      <ProSidebar />
+    <div>FilteredPage {page}
     </div>
   )
 }

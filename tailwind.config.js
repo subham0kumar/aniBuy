@@ -9,7 +9,11 @@ export default {
       'hitto' : ['Hitto'],
       'ukiyo' : ['Ukiyo'],
       'agbalumo' : ['Agbalumo'],
-      'genjiro': ['Genjiro']
+      'genjiro': ['Genjiro'],
+      'chakra': ['Chakra Petch', 'sans-serif'],
+      'exo': ['Exo', 'sans-serif'],
+      'pacifico' : ['Pacifico', 'cursive'],
+      'rubik' : ['Rubik', 'sans-serif']
     },
     extend: {
       boxShadow: {

@@ -2,7 +2,7 @@ import React from "react";
 import { Collapse } from "react-collapse";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
-const TouchDropdown = ({ menuLabel, items, open, toggle }) => {
+const TouchDropdown = ({icon, menuLabel, items, open, toggle }) => {
   return (
     <div>
       <div className="w-full flex justify-between">
@@ -10,8 +10,8 @@ const TouchDropdown = ({ menuLabel, items, open, toggle }) => {
           className="w-full relative mb-2 inline-block px-3 rounded-md"
           onClick={toggle}
         >
-          <span className="p-4 flex border-b-2 rounded-md shadow-inHeavy text-action2 font-agbalumo bg-neutralam items-center justify-between w-full  active:scale-95 duration-200 transition">
-            {menuLabel}{" "}
+          <span className="p-4 flex border-b-2 rounded-md shadow-inHeavy text-action2 font-agbalumo bg-neutralam items-center justify-between w-full active:scale-95 duration-200 transition">
+            {icon}{menuLabel}{" "}
              <AiOutlineArrowRight className={`transition duration-300 ${open ? "-rotate-90" : "rotate-45"}`} size={20} />
           </span>
         </button>

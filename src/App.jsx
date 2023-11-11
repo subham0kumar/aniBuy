@@ -14,8 +14,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" Component={LandingPage} />
-        <Route path="/filtered/" Component={FilteredPage} />
-        <Route path="/product/" Component={ProductPage} />
+        <Route path="/filtered/:page" Component={FilteredPage} />
+        <Route path="/product/:index" Component={ProductPage} />
         <Route path="/cart/" Component={CartPage} />
       </Routes>
 
