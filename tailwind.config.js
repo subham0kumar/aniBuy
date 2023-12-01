@@ -21,6 +21,7 @@ export default {
         '4xl': '4px 8px 16px 4px rgba(0,0,0,0.2)',
         'inHeavy': 'inset 4px 8px 16px 4px rgb(0 0 0 / 0.05)',
         'neumorph':  '20px 20px 60px rgba(0,0,0,0.2),-20px -20px 60px #1463F3',
+        'modal' : '0 0 0 500vmax rgba(0,0,0,.5)',
       },
       colors: {
         'action' : '#8667F2',

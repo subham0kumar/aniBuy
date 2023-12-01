@@ -15,10 +15,10 @@ const Card = ({ url, title, price, nprice }) => {
         </h5>
         <div className=" border-t-2 border-solid rounded-t-md border-second flex justify-evenly">
           <span className="mb-2 text-lg font-md">
-            {price}
+            ₹{price}
           </span>
           <span className="mb-2 line-through text-gray-600">
-            {nprice}
+            ₹{nprice}
           </span>
         </div>
       </div>
