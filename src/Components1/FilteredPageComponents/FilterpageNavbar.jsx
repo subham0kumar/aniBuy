@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { CgClose } from "react-icons/cg";
-import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { useProductState } from "../../Context/ProductContext";
-import DropdownMenu from "../Utility/DropdownMenu";
 import MobileNavbar from "../Utility/MobileNavbar";
 import Search from "../Utility/Search";
 
 
 
-const Navbar = () => {  
+const FilterpageNavbar = () => {  
   const [showSearch, setShowSearch] = useState(false);
-  const {navbarData} = useProductState();
   const handleSearch = () => {
     setShowSearch(true);
   };
@@ -32,26 +28,6 @@ const Navbar = () => {
       </div>
       {/* <-------------------Default mode---------------------> */}
       <div className="hidden rounded-b-md justify-between mb-2 mx-2 px-5 py-2 sm:flex">
-        {/* <-------------- LEFT side ----------------> */}
-
-        <div className="flex text-gray-800 font-agbalumo">
-          {navbarData.map((listItem, i) => {
-            return (
-              <DropdownMenu
-                key={i}
-                menuLabel={listItem.title}
-                items={listItem.list}
-              />
-            );
-          })}
-          <a
-            href="/filtered/all"
-            className="px-3 mb-3 rounded-md hover:bg-neutralamL"
-          >
-            All Products
-          </a>
-        </div>
-
         {/* <-------------- CENTER    (▀̿Ĺ̯▀̿ ̿)    ༼ つ ◕_◕ ༽つ (⌐■_■)----------------> */}
 
         <div>
@@ -64,12 +40,7 @@ const Navbar = () => {
 
         {/* <-------------- RIGHT side ----------------> */}
         <div className="flex cursor-pointer items-center">
-          <span
-            className="bg-transparent rounded-md px-4 p-1 text-action hover:shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-action hover:text-second md:active:scale-95 md:hover:scale-105 cursor-pointer"
-            onClick={handleSearch}
-          >
-            <FiSearch size={30} />
-          </span>{" "}
+         
           <div className="flex mx-2 pl-4">
             <span className="material-symbols-outlined text-action px-2">
               account_circle
@@ -87,11 +58,11 @@ const Navbar = () => {
       {/* <========================Mobile Mode======================> */}
 
       <div className=""><MobileNavbar /></div>
-      <div className="md:hidden flex  items-center justify-center">
+      <div className="md:hidden flex items-center justify-center">
         <Search />
       </div>
     </>
   );
 };
 
-export default Navbar;
+export default FilterpageNavbar;

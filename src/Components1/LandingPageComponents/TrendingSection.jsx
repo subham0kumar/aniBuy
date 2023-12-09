@@ -9,7 +9,7 @@ const TrendingCaraousel = () => {
   const title = "Trending";
   const { products } = useProductState();
 
-  const data = products.filter( (product)=> {
+  const data = products.filter((product) => {
     return product.trending === true;
   });
 

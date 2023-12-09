@@ -13,7 +13,7 @@ const LatestDrops = () => {
   
   return (
     <div className="my-2 p-2">
-      <div className="p-4 m-2 rounded-lg text-center">
+      <div className="md:p-4 m-2 rounded-lg text-center">
         <SwiperDiv data={data} heading={title} />
         <NavLink to={`/filtered/${'latest-drops'}`}>
           <Button text={"View More"} />

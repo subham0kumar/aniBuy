@@ -10,6 +10,7 @@ const ProductPage = () => {
   const { products } = useProductState();
   const filteredProduct = products.find((product) => product.id == index);
   const { category, title } = filteredProduct;
+  // console.log(index)
 
   return (
     <>
