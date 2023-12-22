@@ -4,13 +4,15 @@ import { NavLink, useParams } from "react-router-dom";
 import Navbar from "../Components1/Header/Navbar";
 import ProductView from "../Components1/ProductPageComponents/ProductView";
 import { useProductState } from "../Context/ProductContext";
+import { useSearch } from "../Context/SearchContext";
+import { useCartContext } from "../Context/CartContext";
 
 const ProductPage = () => {
   const { index } = useParams();
   const { products } = useProductState();
   const filteredProduct = products.find((product) => product.id == index);
   const { category, title } = filteredProduct;
-  // console.log(index)
+  const { updateSearchTerm } = useSearch();
 
   return (
     <>
@@ -20,7 +22,7 @@ const ProductPage = () => {
           Home
         </NavLink>{" "}
         <FaAngleRight />{" "}
-        <NavLink to={`/filtered/${category}`} className="text-action2">
+        <NavLink to={`/filtered/${category}`} onClick={()=> updateSearchTerm(category)} className="text-action2">
           {category}
         </NavLink>{" "}
         <FaAngleRight /> {title}

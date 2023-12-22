@@ -1,22 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+import { useSearch } from "../../Context/SearchContext";
 
 const HeroCaraousel = () => {
+  const { searchTerm, updateSearchTerm } = useSearch();
   const slides = [
     {
-      url: "https://images.bewakoof.com/uploads/category/mobilesite/inside-banner-msite_anime-1693226434.jpg",
+      url: "public/Anime-Posters-Web-Banner-1920x730px.jpg",
+      name: 'posters',
     },
     {
-      url: "https://www.kiayaaccessories.com/cdn/shop/files/Kiaya-Home-Page-Banner-02-min.webp?v=1680929601&width=3000",
+      url: "public/One-Piece-Store-Web-Banner-1920x950px.jpg",
+      name: "one piece",
     },
     {
-      url: "https://static.wixstatic.com/media/b6c0dc_3051ab9bae9c466a827452e143b2ee48~mv2.jpg/v1/fill/w_640,h_354,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/b6c0dc_3051ab9bae9c466a827452e143b2ee48~mv2.jpg",
+      url: "public/desktop-wallpaper-naruto-naruto-shippuuden-anime-boy-naruto-ultra-wide.jpg",
+      name: 'naruto'
     },
     {
-      url: "https://bokunotrends.com/cdn/shop/collections/CSM_wide_banner.png?v=1690377985",
+      url: "public/t-_shirt_banner_1920x450.webp",
+      name: 'tees'
     },
   ];
 
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
@@ -31,14 +39,17 @@ const HeroCaraousel = () => {
     setCurrentIndex(newIndex);
   };
 
-  const gotoSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
+  const gotoPage = () => {
+    let val = slides[currentIndex].name
+    updateSearchTerm(val)
+    navigate(`/filtered/:${searchTerm}`)
   };
 
   useEffect(() => {
     setTimeout(() => {
       nextSlide();
     }, 5000);
+    updateSearchTerm('')
   });
 
   return (
@@ -46,6 +57,7 @@ const HeroCaraousel = () => {
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
+        onClick={gotoPage}
       ></div>
 
       <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[50%] left-6 text-2xl rounded-full p-2 bg-black/40 text-white cursor-pointer">

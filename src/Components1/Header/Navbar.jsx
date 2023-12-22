@@ -6,12 +6,14 @@ import { useProductState } from "../../Context/ProductContext";
 import DropdownMenu from "../Utility/DropdownMenu";
 import MobileNavbar from "../Utility/MobileNavbar";
 import Search from "../Utility/Search";
+import { useSearch } from "../../Context/SearchContext";
+import { useCartContext } from "../../Context/CartContext";
 
-
-
-const Navbar = () => {  
+const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
-  const {navbarData} = useProductState();
+  const { navbarData } = useProductState();
+  const { updateSearchTerm } = useSearch();
+  const { cartCount } = useCartContext();
   const handleSearch = () => {
     setShowSearch(true);
   };
@@ -44,18 +46,18 @@ const Navbar = () => {
               />
             );
           })}
-          <a
-            href="/filtered/all"
-            className="px-3 mb-3 rounded-md hover:bg-neutralamL"
+          <Link
+            to={"/filtered/all"}
+            className="hover:bg-neutralamL mx-2 mb-2 px-2 rounded-md"
           >
             All Products
-          </a>
+          </Link>
         </div>
 
         {/* <-------------- CENTER    (▀̿Ĺ̯▀̿ ̿)    ༼ つ ◕_◕ ༽つ (⌐■_■)----------------> */}
 
         <div>
-          <Link to={"/"}>
+          <Link to={"/"} onClick={() => updateSearchTerm("")}>
             <span className="font-ukiyo text-gray-800 text-3xl">
               {"Ani (～￣▽￣)～ Buy"}
             </span>
@@ -69,7 +71,7 @@ const Navbar = () => {
             onClick={handleSearch}
           >
             <FiSearch size={30} />
-          </span>{" "}
+          </span>
           <div className="flex mx-2 pl-4">
             <span className="material-symbols-outlined text-action px-2">
               account_circle
@@ -79,6 +81,9 @@ const Navbar = () => {
             </span>
             <span className="material-symbols-outlined text-action px-2">
               <Link to={"/cart/"}>shopping_cart</Link>
+              <span className="-z-10 px-1.5 pb-1.5 pt-1 text-[.7rem] bg-red-400 rounded-full text-second absolute -translate-y-3.5 -translate-x-2.5">
+                {cartCount}
+              </span>
             </span>
           </div>
         </div>
@@ -86,7 +91,9 @@ const Navbar = () => {
 
       {/* <========================Mobile Mode======================> */}
 
-      <div className=""><MobileNavbar /></div>
+      <div className="">
+        <MobileNavbar />
+      </div>
       <div className="md:hidden flex  items-center justify-center">
         <Search />
       </div>

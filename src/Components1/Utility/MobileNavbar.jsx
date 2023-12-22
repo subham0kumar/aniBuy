@@ -7,6 +7,8 @@ import { useState } from "react";
 import { useProductState } from "../../Context/ProductContext";
 import { FiGithub } from "react-icons/fi";
 import { AiOutlineLinkedin } from "react-icons/ai";
+import { useSearch } from "../../Context/SearchContext";
+import { useCartContext } from "../../Context/CartContext";
 
 const MobileNavbar = () => {
   const toggle = (i) => {
@@ -17,7 +19,9 @@ const MobileNavbar = () => {
   };
   const [showModal, setShowModal] = useState(false);
   const { navbarData } = useProductState();
+  const { updateSearchTerm } = useSearch();
   const [open, setopen] = useState(null);
+  const {cartCount} = useCartContext();
   return (
     <>
       <div className="flex justify-between px-1 m-3 mx-0 w-full md:hidden shadow-[0_4px_9px_-4px_#3b71ca] text-center">
@@ -29,11 +33,17 @@ const MobileNavbar = () => {
           <CgMenu size={25} />
         </button>
         <div className="mx-5 font-ukiyo text-4xl w-2/3">
-          <Link to={"/"}> AB</Link>
+          <Link to={"/"} onClick={() => updateSearchTerm("")}>
+            {" "}
+            AB
+          </Link>
         </div>
         <span className="px-2 flex items-center">
           <Link to={"/cart/"}>
             <MdOutlineShoppingCart size={25} color="#8667F2" />
+            <span className="-z-10 px-2.5 pb-1.5 pt-1 text-[.7rem] bg-red-400 rounded-full text-second absolute -translate-y-11 -translate-x-1">
+              {cartCount}
+            </span>
           </Link>
         </span>
       </div>
@@ -46,7 +56,13 @@ const MobileNavbar = () => {
       >
         <div className="p-3 h-[10vh] border-b-2 border-black flex justify-between items-center">
           <span className="font-ukiyo text-3xl">
-            <Link to={"/"} onClick={() => setShowModal(false)}>
+            <Link
+              to={"/"}
+              onClick={() => {
+                setShowModal(false);
+                updateSearchTerm("");
+              }}
+            >
               AB
             </Link>
           </span>
@@ -66,6 +82,7 @@ const MobileNavbar = () => {
                 icon={listItem.icon}
                 open={i === open}
                 toggle={() => toggle(i)}
+                setOpen={setShowModal}
               />
             );
           })}

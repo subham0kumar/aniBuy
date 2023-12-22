@@ -10,7 +10,6 @@ const Search = () => {
   };
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    console.log("Searching for:", searchTerm);
   };
   const handleSearchReset = () => {
     updateSearchTerm("");

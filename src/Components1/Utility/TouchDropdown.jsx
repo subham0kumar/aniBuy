@@ -1,8 +1,11 @@
 import React from "react";
 import { Collapse } from "react-collapse";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { useSearch } from "../../Context/SearchContext";
+import { Link } from "react-router-dom";
 
-const TouchDropdown = ({icon, menuLabel, items, open, toggle }) => {
+const TouchDropdown = ({ icon, menuLabel, items, open, toggle, setOpen }) => {
+  const { updateSearchTerm } = useSearch();
   return (
     <div>
       <div className="w-full flex justify-between">
@@ -11,8 +14,14 @@ const TouchDropdown = ({icon, menuLabel, items, open, toggle }) => {
           onClick={toggle}
         >
           <span className="p-4 flex border-b-2 rounded-md shadow-inHeavy text-action2 font-agbalumo bg-neutralam items-center justify-between w-full active:scale-95 duration-200 transition">
-            {icon}{menuLabel}{" "}
-             <AiOutlineArrowRight className={`transition duration-300 ${open ? "-rotate-90" : "rotate-45"}`} size={20} />
+            {icon}
+            {menuLabel}{" "}
+            <AiOutlineArrowRight
+              className={`transition duration-300 ${
+                open ? "-rotate-90" : "rotate-45"
+              }`}
+              size={20}
+            />
           </span>
         </button>
       </div>
@@ -20,12 +29,21 @@ const TouchDropdown = ({icon, menuLabel, items, open, toggle }) => {
         <div className={"w-full rounded-md "}>
           <ul className="flex flex-col border-b-4 border-second rounded-md">
             {items.map((item, index) => (
-              <div
-                className="mx-3 px-8 w-[95%] p-1 font-agbalumo  hover:cursor-pointer text-action active:bg-malibu rounded-lg text-sm active:text-neutral-200 active:scale-95 duration-200"
+              <Link
+                to={`/filtered/${item.toLowerCase()}`}
                 key={index}
+                onClick={() => {
+                  updateSearchTerm(item);
+                  setOpen(false);
+                }}
               >
-                {item}
-              </div>
+                <div
+                  className="mx-3 px-8 w-[95%] p-1 font-agbalumo  hover:cursor-pointer text-action active:bg-malibu rounded-lg text-sm active:text-neutral-200 active:scale-95 duration-200"
+                  key={index}
+                >
+                  {item}
+                </div>
+              </Link>
             ))}
           </ul>
         </div>

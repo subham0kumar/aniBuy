@@ -14,8 +14,8 @@ const LandingPage = () => {
       <HeroSection />
       <LatestDrops />
       <span className="flex">
-        <img src="public\edrwardFMAB.png" alt="goku" width={450} className=" mix-blend-luminosity opacity-70 hidden md:block absolute -translate-x-3 -translate-y-2"/>
-        <img src="public\goku-nimbus.png" alt="goku" width={450} className=" mix-blend-multiply opacity-70 hidden md:block absolute -translate-y-28 translate-x-[70vw] bg-blend-multiply"/>
+        <img src="public\edrwardFMAB.png" alt="goku" width={450} className=" mix-blend-luminosity opacity-70 hidden xl:block absolute -translate-x-3 -translate-y-2"/>
+        <img src="public\goku-nimbus.png" alt="goku" width={450} className=" mix-blend-multiply opacity-70 hidden xl:block absolute -translate-y-28 translate-x-[70vw] bg-blend-multiply"/>
       </span>
       <TopCategorySection />
       <TrendingSection />

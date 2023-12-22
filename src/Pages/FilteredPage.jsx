@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import FilterpageNavbar from "../Components1/FilteredPageComponents/FilterpageNavbar";
 import Card2 from "../Components1/Utility/Card2";

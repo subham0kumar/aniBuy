@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./Components1/Footer/Footer";
+import ScrollToTop from "./Components1/Utility/ScrollToTop";
 import CartPage from "./Pages/CartPage";
 import FilteredPage from "./Pages/FilteredPage";
 import LandingPage from "./Pages/LandingPage";
 import ProductPage from "./Pages/ProductPage";
-import ScrollToTop from "./Components1/Utility/ScrollToTop";
 
 
-function App() {
+const App = () => {
   return (
     <div>
       <ScrollToTop />
