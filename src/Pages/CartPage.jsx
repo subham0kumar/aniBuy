@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../Components1/Header/Navbar";
 import CartCard from "../Components1/Utility/CartCard";
 import { useCartContext } from "../Context/CartContext";
-import { Link } from "react-router-dom";
 
 const CartPage = () => {
-  const { cartItems } = useCartContext();
-  console.log(cartItems)
+  const { cartItems, priceSum } = useCartContext();
+  // console.log(cartItems)
   return (
     <>
       <div className="mt-4">
@@ -33,13 +33,8 @@ const CartPage = () => {
               <tbody>
                 {cartItems.map((currItem, i) => {
                   const { product, quantity } = currItem;
-                  <CartCard
-                    items={product}
-                    quant={quantity}
-                  />;
-                // {console.log(quantity, product)}
+                  return <CartCard items={product} quant={quantity} key={i} />;
                 })}
-
                 <tr className="flex justify-end space-x-40 font-chakra font-semibold">
                   <td>
                     <Link to={"/cart/"}>
@@ -67,7 +62,7 @@ const CartPage = () => {
             </span>
             <span className="text-xl border-b-2 border-dashed border-black py-4">
               <h2 className="flex justify-between w-full">
-                Price <p>10</p>
+                Price <p></p>
               </h2>
               <h2 className="flex justify-between w-full">Discount</h2>
             </span>

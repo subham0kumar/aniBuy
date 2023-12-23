@@ -9,7 +9,20 @@ export const CartProvider = ({ children }) => {
   const [priceSum, setPriceSum] = useState(0);
 
   const handleAddToCartList = (product, quantity) => {
-    cartItems.push({product: product, quantity: quantity})
+    cartItems.push({ product: product, quantity: quantity });
+  };
+
+  const handleRemoveFromCartList = (id) => {
+    cartItems.map((item, i) => {
+      const { product } = item;
+      if (product.id === id) cartItems.splice(i, 1);
+    });
+  };
+  const handlePriceSum = (id, price, quantity) => {
+    cartItems.map((item, i) => {
+      const { product } = item;
+      if (product.id === id) setPriceSum(priceSum + price * quantity);
+    });
   };
   return (
     <cartContext.Provider
@@ -22,6 +35,8 @@ export const CartProvider = ({ children }) => {
         setDiscount,
         priceSum,
         setPriceSum,
+        handleRemoveFromCartList,
+        handlePriceSum,
       }}
     >
       {children}
