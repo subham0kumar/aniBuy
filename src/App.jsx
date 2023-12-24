@@ -6,6 +6,8 @@ import CartPage from "./Pages/CartPage";
 import FilteredPage from "./Pages/FilteredPage";
 import LandingPage from "./Pages/LandingPage";
 import ProductPage from "./Pages/ProductPage";
+import BuyPage from "./Pages/BuyPage";
+import ErrorPage from "./Pages/ErrorPage";
 
 
 const App = () => {
@@ -17,6 +19,8 @@ const App = () => {
         <Route path="/filtered/:page" Component={FilteredPage} />
         <Route path="/product/:index" Component={ProductPage} />
         <Route path="/cart/" Component={CartPage} />
+        <Route path="/buy/" Component={BuyPage} />
+        <Route path="/error/" Component={ErrorPage} />
       </Routes>
       <Footer />
     </div>

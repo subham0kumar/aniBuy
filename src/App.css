@@ -6,6 +6,7 @@ th{
 tr{
     display: flex;
     margin: 0 3rem;
+    font-family: "Rubik", "sans-serif";
 }
 
 td{

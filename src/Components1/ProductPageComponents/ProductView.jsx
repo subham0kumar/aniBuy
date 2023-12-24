@@ -15,6 +15,7 @@ const ProductView = ({ product }) => {
   const handleAddToCart = () => {
     handleAddToCartList(product, count);
   };
+
   return (
     <>
       <div className="flex flex-col md:flex-row justify-between md:justify-start md:items-start items-center px-7">
@@ -51,7 +52,7 @@ const ProductView = ({ product }) => {
               <Link to={"/cart/"}>
                 <span
                   className="w-[9rem] text-action2 mb-2 flex p-3 bg-second md:m-2 mt-2 rounded-md shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-action hover:text-second hover:scale-105 cursor-pointer active:scale-95"
-                  onClick={ handleAddToCart }
+                  onClick={handleAddToCart}
                 >
                   <BsCartPlus size={20} className="mr-3" />
                   Add to cart
@@ -64,10 +65,15 @@ const ProductView = ({ product }) => {
                 </span>
               </Link>
             )}
-            <span className="w-[9rem] md:m-2 mt-2 flex p-3 bg-action rounded-md text-second shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-second hover:text-action md:active:scale-95 md:hover:scale-105 cursor-pointer">
-              <GiTakeMyMoney size={25} className="mr-3" />
-              Buy Now
-            </span>
+            <Link to={"/cart/"}>
+              <span
+                className="w-[9rem] md:m-2 mt-2 flex p-3 bg-action rounded-md text-second shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-second hover:text-action md:active:scale-95 md:hover:scale-105 cursor-pointer"
+                onClick={handleAddToCart}
+              >
+                <GiTakeMyMoney size={25} className="mr-3" />
+                Buy Now
+              </span>
+            </Link>
           </div>
 
           <p className="font-exo">{description}</p>

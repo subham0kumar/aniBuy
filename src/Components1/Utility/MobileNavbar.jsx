@@ -21,7 +21,13 @@ const MobileNavbar = () => {
   const { navbarData } = useProductState();
   const { updateSearchTerm } = useSearch();
   const [open, setopen] = useState(null);
-  const {cartCount} = useCartContext();
+  const {cartItems} = useCartContext();
+
+  const totalCount = cartItems.reduce((acc, cartItem) => {
+    const quantity = cartItem.quantity || 1;
+    return acc + quantity;
+  }, 0)
+
   return (
     <>
       <div className="flex justify-between px-1 m-3 mx-0 w-full md:hidden shadow-[0_4px_9px_-4px_#3b71ca] text-center">
@@ -38,17 +44,17 @@ const MobileNavbar = () => {
             AB
           </Link>
         </div>
-        <span className="px-2 flex items-center">
+        <span className="px-2 pr-4 flex items-center">
           <Link to={"/cart/"}>
             <MdOutlineShoppingCart size={25} color="#8667F2" />
-            <span className="-z-10 px-2.5 pb-1.5 pt-1 text-[.7rem] bg-red-400 rounded-full text-second absolute -translate-y-11 -translate-x-1">
-              {cartCount}
+            <span className="-z-10 px-2.5 pb-1.5 pt-1 text-[1.2rem] rounded-full text-red-700 font-bold absolute -translate-y-12 -translate-x-2">
+              {totalCount}
             </span>
           </Link>
         </span>
       </div>
       <div
-        className={`h-full w-[75vw] z-50 top-0 transition ease-in-out text-center duration-500 bg-[#e5e7eb] overflow-y-scroll ${
+        className={`h-full w-[75vw] z-50 top-0 transition ease-in-out text-center duration-500 bg-second overflow-y-scroll ${
           showModal
             ? "fixed translate-x-0 shadow-modal"
             : "absolute -translate-x-full"

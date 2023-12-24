@@ -3,14 +3,19 @@ import { CgClose } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import MobileNavbar from "../Utility/MobileNavbar";
 import Search from "../Utility/Search";
+import { useCartContext } from "../../Context/CartContext";
 
 
 
 const FilterpageNavbar = () => {  
   const [showSearch, setShowSearch] = useState(false);
-  const handleSearch = () => {
-    setShowSearch(true);
-  };
+
+  const {cartItems} = useCartContext();
+
+  const totalCount = cartItems.reduce((acc, cartItem) => {
+    const quantity = cartItem.quantity || 1;
+    return acc + quantity;
+  }, 0)
 
   return (
     <>
@@ -50,6 +55,9 @@ const FilterpageNavbar = () => {
             </span>
             <span className="material-symbols-outlined text-action px-2">
               <Link to={"/cart/"}>shopping_cart</Link>
+              <span className="-z-10 px-1.5 pb-1.5 pt-1 text-[.7rem] bg-red-400 rounded-full text-second absolute -translate-y-3.5 -translate-x-2.5">
+                {totalCount}
+              </span>
             </span>
           </div>
         </div>

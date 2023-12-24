@@ -9,7 +9,7 @@ export const SearchProvider = ({ children }) => {
     setSearchTerm(term);
   };
   return (
-    <searchContext.Provider value={{ searchTerm, updateSearchTerm }}>
+    <searchContext.Provider value={{ searchTerm, updateSearchTerm, setSearchTerm }}>
       {children}
     </searchContext.Provider>
   );

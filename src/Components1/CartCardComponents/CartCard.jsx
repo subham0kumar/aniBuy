@@ -5,30 +5,26 @@ import { useCartContext } from "../../Context/CartContext";
 
 const CartCard = ({ items, quant }) => {
   const { url, title, price, id } = items;
-  const { cartItems, handleRemoveFromCartList, handlePriceSum } =
-    useCartContext();
-  // useEffect(() => {
-  //   handlePriceSum(id, price, quant);
-  // },[]);
+  const { handleRemoveFromCartList } = useCartContext();
   const removeFromCart = (items, quant) => {
     handleRemoveFromCartList(items, quant);
   };
   return (
     <>
-      <tr className="font-chakra font-bold">
+      <tr>
         <td className="w-[18rem]">
-          <div className="w-2/3 justify-end flex items-center text-xl">
+          <div className="w-full flex justify-around items-center text-xl">
             <div
               style={{
                 backgroundImage: `url(${url})`,
               }}
-              className="w-[4rem] md:h-[4rem] h-[6rem] rounded-md aspect-square bg-cover bg-no-repeat bg-center"
+              className="w-[5rem] md:h-[5rem] h-[6rem] rounded-md aspect-square bg-cover bg-no-repeat bg-center"
             ></div>
-            <span className="ml-4">{title.substring(0, 15)}...</span>
+            <span className="text-[1rem]">{title.substring(0, 15)}...</span>
           </div>
         </td>
         <td>{quant}</td>
-        <td className="text-xl font-bold ">₹ {price}</td>
+        <td className="text-xl">₹ {price}</td>
         <td>
           <Link to={"/cart/"}>
             <span

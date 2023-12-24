@@ -13,10 +13,15 @@ const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
   const { navbarData } = useProductState();
   const { updateSearchTerm } = useSearch();
-  const { cartCount } = useCartContext();
+  const { cartItems } = useCartContext();
   const handleSearch = () => {
     setShowSearch(true);
   };
+
+  const totalCount = cartItems.reduce((acc, cartItem) => {
+    const quantity = cartItem.quantity || 1;
+    return acc + quantity;
+  }, 0);
 
   return (
     <>
@@ -68,21 +73,23 @@ const Navbar = () => {
         <div className="flex cursor-pointer items-center">
           <span
             className="bg-transparent rounded-md px-4 p-1 text-action hover:shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-action hover:text-second md:active:scale-95 md:hover:scale-105 cursor-pointer"
-            onClick={handleSearch}
+            // onClick={handleSearch}
           >
-            <FiSearch size={30} />
+            <Link to={"/filtered/all"}>
+              <FiSearch size={30} />
+            </Link>
           </span>
           <div className="flex mx-2 pl-4">
             <span className="material-symbols-outlined text-action px-2">
-              account_circle
+              <Link to={"/error/"}>account_circle</Link>
             </span>
             <span className="material-symbols-outlined text-action px-2">
-              favorite
+              <Link to={"/error/"}>favorite</Link>
             </span>
             <span className="material-symbols-outlined text-action px-2">
               <Link to={"/cart/"}>shopping_cart</Link>
               <span className="-z-10 px-1.5 pb-1.5 pt-1 text-[.7rem] bg-red-400 rounded-full text-second absolute -translate-y-3.5 -translate-x-2.5">
-                {cartCount}
+                {totalCount}
               </span>
             </span>
           </div>

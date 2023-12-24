@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import ToastContainer from "../Utility/ToastContainer";
 
 const ContactUsForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const handleSubmit = (event) => {
-    console.log(name);
+    window.alert(`Thank You ${name.toUpperCase()} for the message`)
     event.preventDefault();
   };
   return (

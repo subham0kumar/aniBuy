@@ -32,6 +32,7 @@ export default {
       backgroundImage: {
         lGradient:
           "linear-gradient(135deg, hsla(290, 100%, 80%, 1) 33%, hsla(0, 0%, 100%, 1) 88%)",
+        thnx: "https://pa1.aminoapps.com/6137/34f5552d5eb726e30f38d5ebb5abc0693ef9a09b_hq.gif",
       },
     },
   },
