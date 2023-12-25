@@ -2,12 +2,13 @@ import React from "react";
 import ContactUsForm from "./ContactUsForm";
 import { FiGithub } from "react-icons/fi";
 import { AiOutlineLinkedin } from "react-icons/ai";
+import { LuCopyright } from "react-icons/lu";
 
 const Footer = () => {
   return (
     <div className="mt-2">
-      <div className="flex justify-evenly bg-gray-600 text-slate-200 py-10">
-        <div className="max-w-md text-justify">
+      <div className="flex md:flex-row flex-col px-4 justify-evenly bg-gray-600 text-slate-200 py-10">
+        <div className="max-w-md text-justify my-2">
           <span className="text-3xl font-agbalumo">About</span>
           <p className="font-rubik">
             Hello, I'm SUBHAM KUMAR, an aspiring React web developer excited to
@@ -40,10 +41,13 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="w-1/3 h-full">
+        <div className="w-1/3 mt-6 h-full">
           <ContactUsForm />
         </div>
       </div>
+        <div className="flex font-rubik items-center justify-center text-center text-white bg-black h-full">
+          <span className="px-2"><LuCopyright /></span><p>2023 AniBuy, All Rights Reserved</p>
+        </div>
     </div>
   );
 };

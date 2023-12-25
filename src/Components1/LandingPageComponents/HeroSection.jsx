@@ -7,19 +7,19 @@ const HeroCaraousel = () => {
   const { searchTerm, updateSearchTerm } = useSearch();
   const slides = [
     {
-      url: "public/Anime-Posters-Web-Banner-1920x730px.jpg",
+      url: "https://anime-poster.com/wp-content/uploads/2021/12/Anime-Posters-Web-Banner-1920x730px.jpg",
       name: 'posters',
     },
     {
-      url: "public/One-Piece-Store-Web-Banner-1920x950px.jpg",
+      url: "https://onepiecefigure.com/wp-content/uploads/2022/09/One-Piece-Store-Web-Banner-1920x950px.jpg",
       name: "one piece",
     },
     {
-      url: "public/desktop-wallpaper-naruto-naruto-shippuuden-anime-boy-naruto-ultra-wide.jpg",
-      name: 'naruto'
+      url: "https://www.bemoregeek.co.uk/content/images/carousels/bmg-web-banners-animev2-2-10302-17323.jpeg",
+      name: 'all'
     },
     {
-      url: "public/t-_shirt_banner_1920x450.webp",
+      url: "https://www.epicstuff.com/cdn/shop/collections/t-_shirt_banner_1920x450.jpg?v=1659805780",
       name: 'tees'
     },
   ];

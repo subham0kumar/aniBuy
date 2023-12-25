@@ -11,7 +11,7 @@ const ContactUsForm = () => {
   };
   return (
     <form
-      className="flex flex-col justify-evenly space-y-3"
+      className="md:w-[25rem] w-[90vw] flex flex-col justify-evenly space-y-3"
       onSubmit={handleSubmit}
     >
       <input
