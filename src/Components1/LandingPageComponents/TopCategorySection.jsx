@@ -42,7 +42,7 @@ const data = [
 ];
 
 const TopCategorySection = () => {
-  const {updateSearchTerm} = useSearch();
+  const { updateSearchTerm } = useSearch();
   return (
     <div className="flex justify-center p-4 m-2 rounded-lg text-center">
       <div>
@@ -51,7 +51,11 @@ const TopCategorySection = () => {
         </span>
         <div className="grid grid-cols-1 place-content-center gap-x-4 gap-2 mt-2 m-auto sm:grid-cols-3 drop-shadow-2xl">
           {data.map((category, index) => (
-            <Link to={`/filtered/${category.id}`} key={index} onClick={() => updateSearchTerm(category.id)}>
+            <Link
+              to={`/filtered/${category.id}`}
+              key={index}
+              onClick={() => updateSearchTerm(category.id)}
+            >
               <div className="group">
                 <div
                   className="flex items-center justify-center bg-sky-200/[.8] w-[15rem] lg:w-[16rem] h-[7rem] md:h-[13rem] border-black border-2 text-5xl hover:cursor-pointer bg-center bg-cover bg-no-repeat hover:bg-blend-screen bg-blend-overlay md:bg-blend-normal active:scale-95 duration-150"
@@ -59,10 +63,7 @@ const TopCategorySection = () => {
                     backgroundImage: `url(${category.imgUrl})`,
                   }}
                 >
-                  <div
-                    className="font-agbalumo 
-               duration-200 ease-in md:hidden group-hover:block hover:scale-95 h-full w-full"
-                  >
+                  <div className="flex items-center justify-center font-agbalumo text-[1.75rem] md:text-[3rem] duration-200 ease-in md:hidden group-hover:block hover:scale-95 h-full w-full">
                     {category.title}
                   </div>
                 </div>

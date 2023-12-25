@@ -101,9 +101,9 @@ const Navbar = () => {
       <div className="">
         <MobileNavbar />
       </div>
-      <div className="md:hidden flex  items-center justify-center">
+      {/* <div className="md:hidden flex  items-center justify-center">
         <Search />
-      </div>
+      </div> */}
     </>
   );
 };

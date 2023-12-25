@@ -97,7 +97,7 @@ const CartPage = () => {
               </h2>
             </span>
             <span>
-              <Link to={"/buy/"}>
+              <Link to={"/buy/"} className="flex justify-center ">
                 <span
                   className="w-fit md:ml-2 mt-2 flex px-24 py-2 md:p-2 bg-action rounded-md text-second shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-second hover:text-action md:active:scale-95 md:hover:scale-105 cursor-pointer"
                   onClick={() => cartItems.splice(0, cartItems.length)}
